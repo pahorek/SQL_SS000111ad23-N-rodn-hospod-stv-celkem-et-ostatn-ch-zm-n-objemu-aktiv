@@ -1,212 +1,1064 @@
 /*==========================================================================
 =================================   AN    =========================================*/
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
 )  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1210, 649) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok, hodn_sl
 
+
 /*==========================================================================
 =================================   AN1    =========================================*/
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN11
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN1
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1218, 651)
-
-group by hodn_rok, ur1_naz, hodn_sl
-order by hodn_rok, hodn_sl
-/*=================================================================================*/
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN12
-from
-(
-select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1225, 652)
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1218, 651, 1225, 652, 1231, 653) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok, hodn_sl
 
-/*=================================================================================*/
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN13
+
+/*==========================================================================
+=================================   AN11    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN11
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1231, 653)
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1218, 651) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok, hodn_sl
 
-/*=================================================================================*/
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN1
+
+/*==========================================================================
+=================================   AN12    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN12
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1231, 653,1218, 651, 1225, 652)
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1225, 652) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AN13    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN13
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1231, 653) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
 
 /*==========================================================================
 =================================   AN2    =========================================*/
-
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN21
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN2
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1238, 655)
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (654, 1238, 1246, 1254) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok, hodn_sl
-
-/*======================================================================*/
-
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN22
-from
-(
-select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1246, 656)
-
-group by hodn_rok, ur1_naz, hodn_sl
-order by hodn_rok desc , hodn_sl
-
-
-/*======================================================================*/
-
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN23
-from
-(
-select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1254, 657)
-
-group by hodn_rok, ur1_naz, hodn_sl
-order by hodn_rok, hodn_sl
-
-/*======================================================================*/
-
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN2
-from
-(
-select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (654,1238,1246,1254)
-
-group by hodn_rok, ur1_naz, hodn_sl
-order by hodn_rok desc, hodn_sl
 
 
 /*==========================================================================
-=================================   AF    =========================================*/
-
-
-select  ur1_naz, hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AFa
+=================================   AN21    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN21
 from
 (
 select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
-nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
-nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
-nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
-nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
-nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
-nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
-nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
-all_ridici nudl, 
-all_ridici_hodnoty h
-where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
-)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1262,658)
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1238, 655) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AN22    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN22
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1246, 656) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AN23    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AN23
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1254, 657) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AFa    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AFa
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1262, 658) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF1    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF1
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1268, 661, 1274, 662) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF11    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF11
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1268, 661) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF12    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF12
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1274, 662) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF2    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF2
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1280, 664, 1286, 1292, 665, 1298, 668) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF21    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF21
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1280, 664) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF22    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF22
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1286, 1292, 665) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF29    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF29
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1298, 668) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF3    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF3
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1304, 670, 1310, 671) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF31    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF31
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1304, 670) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF32    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF32
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1310, 671) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF4    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF4
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1316, 673, 1322, 674) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF41    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF41
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1316, 673) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF42    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF42
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1322, 674) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF5    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF5
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1328, 679, 1334, 680, 1340, 681, 1170, 677, 1346, 683, 1352, 684) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF51    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF51
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1328, 679, 1334, 680, 1340, 681, 1170, 677) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF511    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF511
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1328, 679) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF512    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF512
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1334, 680) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF519    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF519
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1340, 681) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF51n    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF51n
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1170, 677) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF52    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF52
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1346, 683, 1352, 684) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF521    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF521
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1346, 683) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF522    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF522
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1352, 684) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF6    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF6
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1358, 686, 1364, 687, 1370, 688, 1376, 689, 1382, 690, 1388, 691) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF61    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF61
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1358, 686) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF62    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF62
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1364, 687) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF63    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF63
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1370, 688) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF64    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF64
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1376, 689) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF65    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF65
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1382, 690) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF66    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF66
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1388, 691) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF7    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF7
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1186, 693, 1406, 696) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF71    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF71
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1186, 693) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF72    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF72
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1406, 696) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF8    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF8
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1412, 698, 1418, 699) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF81    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF81
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1412, 698) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   AF89    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AF89
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1418, 699) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   C    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) C
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN
+from all_ridici nudl, all_ridici_hodnoty h
+where nudl.uloha = h.uloha
+  and nudl.soub_naz = h.soub_naz
+  and nudl.soub_list = h.soub_list
+  and nudl.hodn_sl = h.hodn_sl
+  and nudl.hodn_radek = h.hodn_radek
+)
+where uloha = 'SEK'
+  AND ROK_PUBL <> 999
+  and REGEXP_LIKE(soub_list, '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$')
+  and hodn_radek in (
+      1210, 649,   -- AN
+      1262, 658    -- AF.a
+  )
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok desc, hodn_sl;
+
+
+/*==========================================================================
+=================================   AFz    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) AFz
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1426, 702) 
+
+group by hodn_rok, ur1_naz, hodn_sl
+order by hodn_rok, hodn_sl
+
+
+/*==========================================================================
+=================================   B102    =========================================*/
+select  hodn_rok, ur1_naz, hodn_sl, sum(hodnota) B102
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+ nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+ nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+ nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+ nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+ nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+ nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+ nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+ all_ridici nudl, 
+ all_ridici_hodnoty h
+ where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and REGEXP_LIKE(soub_list,  '^([0-9]+[sd]|[0-9]+rev24|[0-9]+r24)$') and hodn_radek in (1588, 744) 
 
 group by hodn_rok, ur1_naz, hodn_sl
 order by hodn_rok desc, hodn_sl
 
-/*======================================================================*/
