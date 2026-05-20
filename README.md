@@ -1,0 +1,1 @@
+# SQL_SS000111ad23-N-rodn-hospod-stv-celkem-et-ostatn-ch-zm-n-objemu-aktiv
