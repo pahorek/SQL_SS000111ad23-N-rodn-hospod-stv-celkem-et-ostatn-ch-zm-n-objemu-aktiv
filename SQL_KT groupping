@@ -1,0 +1,25 @@
+select  *
+from
+(
+select h.hodnota , nudl.DAT_NAHR, nudl.OS_NAHR, nudl.ROK_PUBL, nudl.Q_PUBL, nudl.VERZE, nudl.ULOHA,  
+nudl.SOUB_ZDROJ, nudl.SOUB_NAZ, nudl.SOUB_LIST, nudl.TAB_CENA, nudl.TAB_REF_OBD, nudl.TAB_SA_NA, nudl.TAB_NAZ, 
+nudl.TAB_NAZ_EN, nudl.TAB_TYP_PROM, nudl.TAB_KOD, nudl.TAB_KOD_CISEL,nudl.TAB2_TYP_PROM, nudl.TAB2_KOD, nudl.TAB2_KOD_CISEL, 
+nudl.TAB_POZN, nudl.TAB_POZN_EN, nudl.HODN_RAD, nudl.HODN_JEDN, nudl.HODN_ROK,nudl.HODN_Q, nudl.HODN_SL, nudl.HODN_RADEK, nudl.UR1_NAZ, 
+nudl.UR1_NAZ_EN, nudl.LEG1, nudl.LEG2, nudl.LEG3, nudl.LEG4, nudl.LEG5, nudl.LEG6, 
+nudl.LEG7, nudl.LEG8, nudl.LEG9, nudl.LEG10, nudl.UR1_TYP_PROM, nudl.UR1_KOD, nudl.UR1_KOD_CISEL, nudl.UR1_POZN, nudl.UR1_POZN_EN, nudl.UR2_NAZ, 
+nudl.UR2_NAZ_EN, nudl.UR2_TYP_PROM, nudl.UR2_KOD, nudl.UR2_KOD_CISEL, nudl.UR2_POZN, nudl.UR2_POZN_EN, 
+nudl.UR3_NAZ, nudl.UR3_NAZ_EN, nudl.UR3_TYP_PROM, nudl.UR3_KOD, nudl.UR3_KOD_CISEL, nudl.UR3_POZN, nudl.UR3_POZN_EN from
+all_ridici nudl, 
+
+(select  sum(HODNOTA) hodnota, DAT_NAHR, OS_NAHR, ROK_PUBL, Q_PUBL, VERZE, HODN_RADEK,
+ ULOHA, SOUB_ZDROJ, SOUB_NAZ, SOUB_LIST, HODN_SL, HODN_ROK, HODN_Q
+from
+all_ridici_hodnoty where 
+rok_publ = 2023 and uloha = 'SEK' 
+
+group by  DAT_NAHR, OS_NAHR, VERZE, 
+ DAT_NAHR, OS_NAHR, ROK_PUBL, Q_PUBL, VERZE, HODN_RADEK, ULOHA, SOUB_ZDROJ, SOUB_NAZ, SOUB_LIST, HODN_SL, HODN_ROK, HODN_Q) h
+ 
+where nudl.uloha = h.uloha  and nudl.soub_naz = h.soub_naz  and nudl.soub_list = h.soub_list and nudl.hodn_sl = h.hodn_sl and nudl.hodn_radek = h.hodn_radek
+)  where uloha = 'SEK'  AND ROK_PUBL <> 999 and rok_publ =2023
+order by hodn_radek
